@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gladiator Bicycles</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+    </head>
+    <body>
+        <nav>
+            <ul id="navContent" class="gridlayout-6">
+                <img src="/assets/logo4.png" alt="Gladiator Bicycles" class="navimage"/>
+                <div class="navbutton home current">
+                    <a href="/">Home</a>
+                </div>
+                <div class="navbutton products">
+                    <a href="/products">Products</a>
+                </div>
+                <div class="navbutton about">
+                    <a href="/about">About Us</a>
+                </div>
+                <div class="navbutton contact">
+                    <a href="/contact">Contact Us</a>
+                </div>
+            </ul>
+        </nav>
+        <main class="mainContent">
+            <div class="gridlayout-6 gap">
+                <section class="filterview">
+                    <span class="filterby">Filter By</span>
+                    <a href="/products" class="grey-card">All Products</a>
+                    <span class="bybrand">Brand</span>
+                    <a href="/products/trek" class="grey-card">Trek Bikes</a>
+                    <a href="/products/schwinn" class="grey-card">Schwinn Bikes</a>
+                    <a href="/products/giant" class="grey-card">Giant Bikes</a>
+                    <span class="bytype">Type</span>
+                    <a href="/products/mountain" class="grey-card">Mountain Bikes</a>
+                    <a href="/products/cruiser" class="grey-card">Cruiser Bikes</a>
+                    <a href="/products/road" class="grey-card">Road Bikes</a>
+                </section>
+                <section class="productview">
+                    <% products.forEach( product => { %>
+                        <a href="/products/<%= product._id %>" class="grey-card" >
+                            <div class="prodname"><%= product.name %></div>
+                            <div class="prodbrand"><%= product.brand %></div>
+                            <img src="<%= product.imgPath %>" alt="">
+                            <span class="prodprice"><%= product.price %></span>
+                        </a>
+                    <% }); %>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <span>Developed by: Joshua Swonger</span>
+        </footer>
+    </body>
+</html>

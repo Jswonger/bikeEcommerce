@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gladiator Bicycles</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+    </head>
+    <body>
+        <nav>
+            <ul id="navContent" class="gridlayout-6">
+                <img src="/assets/logo4.png" alt="Gladiator Bicycles" class="navimage"/>
+                <div class="navbutton home current">
+                    <a href="/">Home</a>
+                </div>
+                <div class="navbutton products">
+                    <a href="/products">Products</a>
+                </div>
+                <div class="navbutton about">
+                    <a href="/about">About Us</a>
+                </div>
+                <div class="navbutton contact">
+                    <a href="/contact">Contact Us</a>
+                </div>
+            </ul>
+        </nav>
+        <main class="mainContent">
+            <div class="gridlayout-6 gap">
+                <section class="productInfo grey-card">
+                    <div class="pname"><%= product.name %></div>
+                    <div class="pbrand">Brand: <%= product.brand %></div>
+                    <div class="ptype">Type: <%= product.type %></div>
+                    <div class="pdesc">Description:</div>
+                    <div class="pardesc"><%= product.desc %></div>
+                    
+                </section>
+                <section class="productImg grey-card">
+                    <img src="<%= product.imgPath %>" alt="<%= product.name %>">
+                    <div class="pprice">$<%= product.price %></div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <span>Developed by: Joshua Swonger</span>
+        </footer>
+    </body>
+</html>

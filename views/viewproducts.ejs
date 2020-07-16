@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gladiator Bicycles</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body id="admin">
+        <div class="container">
+            <h3>View Products</h3>
+            <table class="table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>BRAND</th>
+                        <th>TYPE</th>
+                        <th>NAME</th>
+                        <th>IMAGE PATH</th>
+                        <th>PRICE</th>
+                        <th>DESCRIPTION</th>
+                        <th>OPTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td>
+                                <%= product._id %>
+                            </td>
+                            <td>
+                                <%= product.brand %>
+                            </td>
+                            <td>
+                                <%= product.type %>
+                            </td>
+                            <td>
+                                <%= product.name %>
+                            </td>
+                            <td>
+                                <%= product.imgPath %>
+                            </td>
+                            <td>
+                                <%= product.price %>
+                            </td>
+                            <td>
+                                <%= product.desc %>
+                            </td>
+                            <td>
+                                <form action="/admin/editproduct/<%= product._id %>" method="GET">
+                                    <button class="btn btn-primary btn-block" type="submit" <%= user %> >Edit</button>
+                                </form>
+                                <form action="/admin/viewproducts/<%= product._id %>?_method=DELETE" method="POST">
+                                    <button class="btn btn-danger btn-block" type="submit" <%= user %> >Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+            <form action="/admin/dashboard" method="GET">
+                <button class="btn btn-primary" type="submit">Back to Dashboard</button>
+            </form>
+        </div>
+    </body>
+</html>

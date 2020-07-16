@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gladiator Bicycles</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body id="admin">
+        <div class="container">
+            <h3>Edit Product</h3>
+            <form class="form-group" action="/admin/editproduct/<%= product._id %>?_method=PUT" method="POST">
+                <div>
+                    <label for="brand">Brand: </label>
+                    <input class="form-control" type="text" id="brand" name="brand" value="<%= product.brand %>" required>
+                </div>
+                <div>
+                    <label for="type">Type: </label>
+                    <input class="form-control" type="text" id="type" name="type" value="<%= product.type %>" required>
+                </div>
+                <div>
+                    <label for="name">Name: </label>
+                    <input class="form-control" type="text" id="name" name="name" value="<%= product.name %>" required>
+                </div>
+                <div>
+                    <label for="imgPath">imgPath: </label>
+                    <input class="form-control" type="text" id="imgPath" name="imgPath" value="<%= product.imgPath %>" disabled/>
+                </div>
+                <div>
+                    <label for="price">Price: </label>
+                    <input class="form-control" type="text" id="price" name="price" value="<%= product.price %>" required>
+                </div>
+                <div>
+                    <label for="desc">Description: </label>
+                    <textarea class="form-control" rows="4" name="desc" id="desc" required><%= product.desc %></textarea>
+                </div>
+                <a class="btn btn-danger" href="/admin/viewproducts">Cancel</a>
+                <input class="btn btn-success" type="submit" value="Save Changes">
+            </form>
+        </div>
+    </body>
+</html>
